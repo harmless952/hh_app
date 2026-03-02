@@ -1,6 +1,6 @@
 import httpx
 
-url_app = "http://fastapi_app:8000/v1/data/"
+URL_APP = os.getenv("URL_APP", "http://fastapi_app:8000/v1/data/")
 
 # URL для поиска вакансий
 url = "https://api.hh.ru/vacancies"
@@ -48,7 +48,7 @@ def main():
         print(f"Ошибка: {response.status_code}")
 
     try:
-        response = httpx.post(url=url_app, json=result_data)
+        response = httpx.post(url=URL_APP, json=result_data)
         response.raise_for_status()
         print(f"Успешно отправлено: {len(result_data)} вакансий")
     except httpx.HTTPStatusError as e:
