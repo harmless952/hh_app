@@ -1,4 +1,5 @@
 import httpx
+import os
 
 URL_APP = os.getenv("URL_APP", "http://fastapi_app:8000/v1/data/")
 
