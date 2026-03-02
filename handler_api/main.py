@@ -49,7 +49,7 @@ def main():
         print(f"Ошибка: {response.status_code}")
 
     try:
-        response = httpx.post(url=URL_APP, json=result_data)
+        response = httpx.post(url=URL_APP, json=result_data, follow_redirects=True)
         response.raise_for_status()
         print(f"Успешно отправлено: {len(result_data)} вакансий")
     except httpx.HTTPStatusError as e:
